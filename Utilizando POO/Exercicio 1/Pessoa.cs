@@ -1,8 +1,8 @@
 using System;
 namespace Exercicio_1 
 {
-    class Pessoa 
+    abstract class Pessoa 
     {
-        public virtual void Cumprimentar () {}        
+        public abstract void Cumprimentar ();
     }
 }
