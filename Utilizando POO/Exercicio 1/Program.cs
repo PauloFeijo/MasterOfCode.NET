@@ -10,6 +10,7 @@ O que faz as interfaces IDisposable, IComparable, ICloneable e IEnumerable?
 Existe herança múltipla (de classes) em C#?
 */
 using System;
+using System.Collections.Generic;
 
 namespace Exercicio_1
 {
@@ -22,6 +23,10 @@ namespace Exercicio_1
             MostrarOQueEhAbstracao();
             MostrarOQueEhEncapsulamento();
             MostrarQuandoUsarInterfaceOuClasseAbstrata();
+            MostrarInterfaceIDisposable();
+            MostrarInterfaceIComparable();
+            // O que faz as interfaces IDisposable, IComparable, ICloneable e IEnumerable?
+            // Existe herança múltipla (de classes) em C#?
         }
 
         static void MostrarOqueEhPOO()
@@ -163,6 +168,44 @@ namespace Exercicio_1
             Exportar(conta);
 
             Separar();
+        }
+
+        static void MostrarInterfaceIDisposable()
+        {
+          Console.WriteLine("6.1) O que faz a interface IDisposable?");
+          Console.WriteLine("Realiza tarefas definidas pelo aplicativo associadas à liberação ou à redefinição de recursos não gerenciados.");
+          // Fonte: https://docs.microsoft.com/pt-br/dotnet/api/system.idisposable.dispose?view=net-5.0
+
+          Disposable obj = new Disposable();   
+          obj.Dispose();
+
+          Separar();
+        }
+
+        static void MostrarInterfaceIComparable()
+        {
+          Console.WriteLine("6.2) O que faz a interface IComparable?");
+          Console.WriteLine("Define um método de comparação de tipo específico generalizado que implementa uma classe ou um tipo de valor para solicitar "+
+            "ou classificar suas instâncias.");
+          // Fonte: https://docs.microsoft.com/pt-br/dotnet/api/system.icomparable?view=net-5.0
+          Console.WriteLine("No exemplo abaixo, é utilizado o IComparable no metodo Sort() de uma lista de objetos");
+
+          List<Comparable> lista = new List<Comparable>();
+
+          lista.Add(new Comparable(5));
+          lista.Add(new Comparable(2));
+          lista.Add(new Comparable(1));
+          lista.Add(new Comparable(4));
+          lista.Add(new Comparable(9));
+          lista.Add(new Comparable(7));
+          lista.Add(new Comparable(3));
+          lista.Add(new Comparable(6));
+
+          lista.Sort();
+
+          lista.ForEach(i => Console.WriteLine(i.codigo));
+
+          Separar();
         }
     }
 }
