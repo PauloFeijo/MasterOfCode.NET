@@ -25,8 +25,9 @@ namespace Exercicio_1
             MostrarQuandoUsarInterfaceOuClasseAbstrata();
             MostrarInterfaceIDisposable();
             MostrarInterfaceIComparable();
-            // O que faz as interfaces IDisposable, IComparable, ICloneable e IEnumerable?
-            // Existe herança múltipla (de classes) em C#?
+            MostrarInterfaceICloneable();
+            MostrarInterfaceIEnumerable();
+            MostrarExisteHerancaMultiplaCSharp();
         }
 
         static void MostrarOqueEhPOO()
@@ -207,5 +208,55 @@ namespace Exercicio_1
 
           Separar();
         }
-    }
+
+        static void MostrarInterfaceICloneable()
+        {
+          Console.WriteLine("6.3) O que faz a interface ICloneable?");
+          Console.WriteLine("A interface ICloneable dá suporte à clonagem, que cria uma nova instância de uma classe com o mesmo valor de uma instância existente.");
+          Console.WriteLine("Esta interface contém o método Clone que dá suporte à clonagem além do que é fornecido pelo método  Object.MemberwiseClone que cria uma"+
+            " cópia superficial de Object atual.");  
+          // Fonte: http://www.macoratti.net/19/05/c_iclone1.htm  
+          Console.WriteLine("No exemplo abaixo é criado um objeto e em seguida clonado:");
+          Console.WriteLine("");
+
+          Cloneable obj = new Cloneable();
+          obj.descricao = "Descrição origem";
+
+          Cloneable clone = obj.Clone() as Cloneable;
+
+          Console.WriteLine($"Descrição do objeto origem: {obj.descricao}");
+          Console.WriteLine($"Descrição do objeto clonado: {clone.descricao}");
+
+          Separar();
+        }
+
+        static void MostrarInterfaceIEnumerable()
+        {
+          Console.WriteLine("6.4) O que faz a interface IEnumerable?");
+          Console.WriteLine("A interface IEnumerable expõe um enumerador que dá suporte a uma iteração simples em uma coleção não genérica.");
+          // Fonte: https://docs.microsoft.com/pt-br/dotnet/api/system.collections.ienumerable?view=net-5.0
+          Console.WriteLine("No exemplo abaixo é criado um objeto \"Enumerable\" e um objeto lista enumerável \"Enumerables\".");
+
+            Enumerable[] enumerables = new Enumerable[5];
+
+            for (int i = 0; i < enumerables.Length; i++)
+            {
+              enumerables[i] = new Enumerable ($"Item {i}");
+            }
+
+            Enumerables enumerablesList = new Enumerables(enumerables);
+
+            foreach (Enumerable e in enumerablesList)
+            {
+              Console.WriteLine (e.descricao);
+            }
+            Separar();
+        }
+
+        static void MostrarExisteHerancaMultiplaCSharp()
+        {
+          Console.WriteLine("7) Existe herança múltipla (de classes) em C#?");
+          Console.WriteLine("Não");          
+        }
+    }    
 }
