@@ -14,20 +14,16 @@ namespace Exercicio_5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Cálculo Bhascara");
+            Console.WriteLine("Cálculo Bhaskara");
 
             double a = LerNumerico("Informe o valor de a:");
             double b = LerNumerico("Informe o valor de b:");
             double c = LerNumerico("Informe o valor de c:");
 
-            double D = Math.Pow(b,2) - (4 * a * c);
-            double raizD = Math.Sqrt(D);
+            Bhaskara bhaskara = new Bhaskara(a, b, c);
 
-            double r1 = ((b * -1) + raizD) / (2 * a);
-            double r2 = ((b * -1) - raizD) / (2 * a);
-
-            Console.WriteLine($"Valor de R1: {r1}");
-            Console.WriteLine($"Valor de R2: {r2}");
+            Console.WriteLine($"Valor de R1: {bhaskara.R1}");
+            Console.WriteLine($"Valor de R2: {bhaskara.R2}");
         }
 
         static double LerNumerico(string msg) {

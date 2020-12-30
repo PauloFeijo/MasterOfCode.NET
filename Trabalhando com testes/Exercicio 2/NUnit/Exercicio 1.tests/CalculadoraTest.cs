@@ -15,25 +15,25 @@ namespace Exercicio_1.tests
         }
 
         [Test]
-        public void SomarTest()
+        public void TestSomar()
         {
             Assert.AreEqual(14, calc.Somar());
         }
 
         [Test]
-        public void SubtrairTest()
+        public void TestSubtrair()
         {
             Assert.AreEqual(-9, calc.Subtrair());
         }  
 
         [Test]
-        public void DividirTest()
+        public void TestDividir()
         {
             Assert.AreEqual(4.6, calc.Dividir());
         }
 
         [Test]
-        public void MultiplicarTest()
+        public void TestMultiplicar()
         {
             Assert.AreEqual(28.75, calc.Multiplicar());
         }                      
