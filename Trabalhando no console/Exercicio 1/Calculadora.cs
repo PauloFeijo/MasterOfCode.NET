@@ -1,9 +1,9 @@
 namespace Exercicio_1
 {
-    class Calculadora    
+    public class Calculadora    
     {
-        public int valorA;
-        public int valorB;
+        public double valorA;
+        public double valorB;
 
         public double Somar()
         {

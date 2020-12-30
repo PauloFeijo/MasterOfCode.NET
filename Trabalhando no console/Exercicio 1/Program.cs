@@ -35,7 +35,7 @@ namespace Exercicio_1
                 Console.WriteLine("6 - Multiplicar");
                 Console.WriteLine("0 - Sair");
 
-                op = LerValor("Informe o número da opção desejada:");
+                op = LerInteiro("Informe o número da opção desejada:");
 
                 Console.WriteLine("");
                 Console.WriteLine("--------------------------------------------");
@@ -72,13 +72,13 @@ namespace Exercicio_1
             }
         }
 
-        static void LerValores(ref int valorA, ref int valorB)
+        static void LerValores(ref double valorA, ref double valorB)
         {
             valorA = LerValor("Informe o valor de A:");
             valorB = LerValor("Informe o valor de B:");
         }
 
-        static string ParOuImpar(int valor) 
+        static string ParOuImpar(double valor) 
         {
             if (valor % 2 == 0) 
             {
@@ -87,7 +87,20 @@ namespace Exercicio_1
             return "impar";
         }
 
-        static int LerValor(string msg) {
+        static double LerValor(string msg) {
+            Console.WriteLine(msg);                        
+            string txt = Console.ReadLine(); 
+
+            if (Double.TryParse(txt, out double vlr))
+            {
+                return vlr;
+            }
+
+            Console.WriteLine("Valor inválido!");
+            return LerValor(msg);
+        }
+
+        static int LerInteiro(string msg) {
             Console.WriteLine(msg);                        
             string txt = Console.ReadLine(); 
 
@@ -97,7 +110,7 @@ namespace Exercicio_1
             }
 
             Console.WriteLine("Valor inválido!");
-            return LerValor(msg);
-        }
+            return LerInteiro(msg);
+        }        
     }
 }
